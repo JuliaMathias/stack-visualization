@@ -31,6 +31,11 @@ const buttonEnable = () => {
   input.disabled = false;
 };
 
+const updateTopIndicator = () => {
+  const topIndicator = document.querySelector(".top-indicator");
+  topIndicator.innerHTML = stack.length - 1; // The top of the stack index
+};
+
 //When the push button will be clicked
 push.addEventListener("click", () => {
   //if input box is empty
@@ -39,6 +44,7 @@ push.addEventListener("click", () => {
     massageBox.classList.add("error-massage");
     setTimeout(() => {
       massageBox.classList.remove("error-massage");
+      updateTopIndicator();
     }, 1200);
     return;
   }
@@ -50,6 +56,7 @@ push.addEventListener("click", () => {
     massageBox.classList.add("error-massage");
     setTimeout(() => {
       massageBox.classList.remove("error-massage");
+      updateTopIndicator();
     }, 1200);
     return;
   }
@@ -87,6 +94,7 @@ push.addEventListener("click", () => {
 
     //Enable all buttons
     buttonEnable();
+    updateTopIndicator();
   }, 1500);
 });
 
@@ -98,6 +106,7 @@ pop.addEventListener("click", () => {
     massage.innerHTML = "Stack Underflow";
     setTimeout(() => {
       massageBox.classList.remove("error-massage");
+      updateTopIndicator();
     }, 1200);
     return;
   }
@@ -131,6 +140,7 @@ pop.addEventListener("click", () => {
 
     //Enable all buttons
     buttonEnable();
+    updateTopIndicator();
   }, 1500);
 });
 
@@ -151,4 +161,5 @@ reset.addEventListener("click", () => {
   while (bucket.firstChild) {
     bucket.removeChild(bucket.firstChild);
   }
+  updateTopIndicator();
 });
