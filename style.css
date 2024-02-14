@@ -212,3 +212,18 @@ header {
     background-color: rgb(255, 15, 59);
   }
 }
+
+.main-stack-bucket .top-overlay {
+  position: absolute;
+  bottom: 10px;
+  /* Adjust as needed */
+  right: 10px;
+  /* Adjust as needed */
+  display: none;
+  /* Hide by default */
+}
+
+.main-stack-bucket .top-overlay.active {
+  display: block;
+  /* Show when stack is not empty */
+}

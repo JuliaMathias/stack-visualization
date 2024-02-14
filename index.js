@@ -152,3 +152,22 @@ reset.addEventListener("click", () => {
     bucket.removeChild(bucket.firstChild);
   }
 });
+
+// Inside index.js
+const topValueSpan = document.querySelector(".top-value");
+const topOverlayDiv = document.querySelector(".top-overlay");
+
+// Update where needed in your push and pop event listeners
+// On push:
+topValueSpan.textContent = stack.length - 1; // Update the number
+topOverlayDiv.classList.add("active"); // Show the overlay
+
+// On pop:
+topValueSpan.textContent = stack.length - 2; // Update the number
+if (stack.length === 1) {
+  topOverlayDiv.classList.remove("active"); // Hide the overlay if stack is empty
+}
+
+// On reset:
+topValueSpan.textContent = -1; // Reset the number
+topOverlayDiv.classList.remove("active"); // Hide the overlay
